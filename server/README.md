@@ -15,4 +15,5 @@ Follow these steps to get the application up and running:
    ```bash
    git clone https://github.com/khawarizmi02/MEDDAPOINT.git
    cd MEDDAPOINT
+   npm run dev
    ```
