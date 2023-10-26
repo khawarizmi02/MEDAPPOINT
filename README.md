@@ -1,4 +1,4 @@
-# MEDDAPOINT
+# MEDAPPOINT
 ## Requirements
 1. [Node.js v16.14](https://nodejs.org/en/download)
 2. [MongoDB](https://www.mongodb.com/try/download/community)
