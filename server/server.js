@@ -21,6 +21,9 @@ db.once('open', () =>
 
 app.use(express.json());
 
+const patientsRouter = require('./routers/patients.js');
+app.use('/patients', patientsRouter)
+
 app.listen(PORT, () =>
   console.log(`Server running on http://localhost:${PORT}`)
 );
