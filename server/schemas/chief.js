@@ -1,8 +1,7 @@
-const mongoose = required('mongoose')
-const HealthCenter = reuired('./healthCenter')
+const mongoose = require('mongoose');
+const HealthCenter = require('./healthCenter');
 
 const chiefSchema = new mongoose.Schema({
-  
   name: {
     type: String,
     required: true,
