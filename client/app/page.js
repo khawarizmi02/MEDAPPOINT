@@ -9,7 +9,7 @@ export default function Home() {
       </div>
 
       <div className="bg-yellow-50 py-3 my-3 px-3">
-        <Link href="/book"> Booking Page </Link>
+        <Link href="/booking"> Booking Page </Link>
       </div>
       <div className="bg-blue-50 py-3 my-3 px-3">
         <Link href="/queue"> Queue Page </Link>
