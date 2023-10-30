@@ -17,6 +17,9 @@ export default function Home() {
       <div className="bg-red-50 py-3 my-3 px-3">
         <Link href="/profile"> Profile Page </Link>
       </div>
+      <div className="bg-red-50 py-3 my-3 px-3">
+        <Link href="/history"> History Page </Link>
+      </div>
     </div>
   );
 }
