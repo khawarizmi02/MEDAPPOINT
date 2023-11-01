@@ -1,0 +1,90 @@
+[{
+  "_id": {
+    "$oid": "65410603f0bb25dd9a2a5715"
+  },
+  "patient": {
+    "$oid": "653d22d5abb64d01e14c5420"
+  },
+  "healthCenter": {
+    "$oid": "653f4d5784c78f3d47af0853"
+  },
+  "chief": {
+    "$oid": "6540694a68cc89992fdb4da9"
+  },
+  "dateSubmit": {
+    "$date": "2023-10-28T12:00:00.000Z"
+  },
+  "regNum": 101,
+  "diagnosis": "Demam Panas",
+  "chiefComplain": "Runny nose and sore throat",
+  "HPI": "Patient started showing symptoms 2 days ago with a mild sore throat which intensified the next day. A runny nose began yesterday evening.",
+  "PMHx": [
+    "Allergy to Penicillin"
+  ],
+  "medicationHistory": [
+    {
+      "drugs": "Paracetamol",
+      "indication": "Pain relief",
+      "notes": "Take twice a day after meals",
+      "durations": 3,
+      "_id": {
+        "$oid": "65410603f0bb25dd9a2a5716"
+      }
+    },
+    {
+      "drugs": "Antihistamine",
+      "indication": "Reduce nasal congestion",
+      "notes": "Take once before bed",
+      "durations": 5,
+      "_id": {
+        "$oid": "65410603f0bb25dd9a2a5717"
+      }
+    }
+  ],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "654106e3f0bb25dd9a2a571c"
+  },
+  "patient": {
+    "$oid": "653d22d5abb64d01e14c5420"
+  },
+  "healthCenter": {
+    "$oid": "653f4d5784c78f3d47af0853"
+  },
+  "chief": {
+    "$oid": "6540694a68cc89992fdb4da9"
+  },
+  "dateSubmit": {
+    "$date": "2023-10-28T12:00:00.000Z"
+  },
+  "regNum": 102,
+  "diagnosis": "Flue",
+  "chiefComplain": "Runny nose and sore throat",
+  "HPI": "Patient started showing symptoms 2 days ago with a mild sore throat which intensified the next day. A runny nose began yesterday evening.",
+  "PMHx": [
+    "Allergy to Penicillin"
+  ],
+  "medicationHistory": [
+    {
+      "drugs": "Perindopri",
+      "indication": "Hghpertension",
+      "notes": "Take twice a day after meals",
+      "durations": 3,
+      "_id": {
+        "$oid": "654106e3f0bb25dd9a2a571d"
+      }
+    },
+    {
+      "drugs": "Amoxicillin",
+      "indication": "bacterial infection",
+      "notes": "Take once daily",
+      "durations": 5,
+      "_id": {
+        "$oid": "654106e3f0bb25dd9a2a571e"
+      }
+    }
+  ],
+  "__v": 0
+}]

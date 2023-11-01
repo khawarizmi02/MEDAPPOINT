@@ -1,0 +1,85 @@
+[{
+  "_id": {
+    "$oid": "653d0d0f68f2e28c3741ed26"
+  },
+  "name": "John Doe bin amir bin Khawa",
+  "icNum": "1234567890",
+  "age": 30,
+  "gender": "M",
+  "race": "Caucasian",
+  "email": "john.doe@example.com",
+  "phoneNumber": "123-456-7890",
+  "weight": 70.5,
+  "height": 175.3,
+  "foodAllergies": "Peanuts",
+  "drugAllergies": "Penicillin",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "653d22d5abb64d01e14c5420"
+  },
+  "name": "Rifat bin ali",
+  "icNum": "11237840",
+  "age": 50,
+  "gender": "M",
+  "race": "Caucasian",
+  "email": "john.doe@example.com",
+  "phoneNumber": "123-456-7890",
+  "weight": 70.5,
+  "height": 175.3,
+  "foodAllergies": "Peanuts",
+  "drugAllergies": "Penicillin",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "653d230fabb64d01e14c5422"
+  },
+  "name": "Amsyar bin Tuan",
+  "icNum": "0211237840",
+  "age": 23,
+  "gender": "M",
+  "race": "Malay",
+  "email": "tuan.doe@example.com",
+  "phoneNumber": "123-456-7890",
+  "weight": 70.5,
+  "height": 175.3,
+  "foodAllergies": "Peanuts",
+  "drugAllergies": "Penicillin",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "653d234aabb64d01e14c5424"
+  },
+  "name": "Ariff ami",
+  "icNum": "021238540",
+  "age": 23,
+  "gender": "M",
+  "race": "Malay",
+  "email": "ariff.doe@example.com",
+  "phoneNumber": "123-456-7890",
+  "weight": 70.5,
+  "height": 175.3,
+  "foodAllergies": "Peanuts",
+  "drugAllergies": "Penicillin",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "653fa8f77e269d6aa672e5fc"
+  },
+  "name": "HAIQAL ami",
+  "icNum": "021238540",
+  "age": 5,
+  "gender": "M",
+  "race": "Malay",
+  "email": "arif.doe@example.com",
+  "phoneNumber": "123-456-7890",
+  "weight": 70.5,
+  "height": 175.3,
+  "foodAllergies": "Peanuts",
+  "drugAllergies": "Penicillin",
+  "__v": 0
+}]
