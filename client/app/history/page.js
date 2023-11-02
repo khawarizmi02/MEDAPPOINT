@@ -1,39 +1,53 @@
-import React from "react";
-import HistoryItem from './historyItem.jsx'
+'use client';
+
+import React, { useState, useEffect } from 'react';
+import HistoryItem from './historyItem.jsx';
+import axios from 'axios';
 
 const page = () => {
+	const [data, setData] = useState([]);
+	const [doctor, setDoctor] = useState([]);
+	const [hospital, setHospital] = useState([]);
 
-    const data = [{
-        hospitalName: 'Hosp. Shah Alam',
-        doctorName: 'Dr. Khawarizmi',
-        doctorID: 124769,
-        date: '12 Oct 2023',
-        pastMedicalHistory: 'Lorem ipsum dolor sit amet consectetur. Interdum tortor purus et aliquam augue eget. Ipsum nibh ac commodo aenean lobortis sagittis aliquam lectus donec. Tristique est lobortis erat o',
-        medicationHistory: 'Lorem ipsum dolor sit amet consectetur. Interdum tortor purus et aliquam augue eget. Ipsum nibh ac commodo aenean lobortis sagittis aliquam lectus donec. Tristique est lobortis erat o',
-    },
-    {
-        hospitalName: 'Hosp. Shah Alam',
-        doctorName: 'Dr. Khawarizmi',
-        doctorID: 124769,
-        date: '12 Oct 2023',
-        pastMedicalHistory: 'Lorem ipsum dolor sit amet consectetur. Interdum tortor purus et aliquam augue eget. Ipsum nibh ac commodo aenean lobortis sagittis aliquam lectus donec. Tristique est lobortis erat o',
-        medicationHistory: 'Lorem ipsum dolor sit amet consectetur. Interdum tortor purus et aliquam augue eget. Ipsum nibh ac commodo aenean lobortis sagittis aliquam lectus donec. Tristique est lobortis erat o',
-    },]
-  return (
-    <div className="flex flex-col items-center">
-            {data.map((item, idx) => ( 
-                <HistoryItem 
-                key={idx}
-                hospitalName={item.hospitalName}
-                doctorName={item.doctorName}
-                doctorID={item.doctorID}
-                date={item.date}
-                pastMedicalHistory={item.pastMedicalHistory}
-                medicationHistory={item.medicationHistory}
-            />
-            ))}
-    </div>
-  )
-}
+	useEffect(() => {
+		const fetchData = async () => {
+			try {
+				const dataResponse = await axios.get('http://localhost:5000/healthRecord/653d0d0f68f2e28c3741ed26');
+				const dataWithDoctorAndHospital = await Promise.all(dataResponse.data.map(async item => {
+					const doctorResponse = await axios.get(`http://localhost:5000/chief/${item.chief}`);
+					const hospitalResponse = await axios.get(`http://localhost:5000/healthcenter/${item.healthCenter}`);
+					return {
+						...item,
+						doctor: doctorResponse.data,
+						hospital: hospitalResponse.data
+					};
+				}));
+				setData(dataWithDoctorAndHospital);
+			} catch (error) {
+				console.error('Error fetching data', error);
+			}
+		};
 
-export default page
+		fetchData();
+	}, []);
+
+	return (
+		<div className="flex flex-col items-center">
+			{data.map((item) => (
+				<HistoryItem
+					hospitalName={item.hospital.healthCenter.name}
+					doctorName={item.doctor.name}
+					doctorID={item.doctor.idNum}
+					date={item.dateSubmit}
+					diagnosis={item.diagnosis}
+					chiefComplain={item.chiefComplain}
+					HPI={item.HPI}
+					pastMedicalHistory={item.PMHx}
+					medicationHistory={item.medicationHistory}
+				/>
+			))}
+		</div>
+	);
+};
+
+export default page;
