@@ -1,5 +1,7 @@
 const mongoose = require('mongoose');
 const Patient = require('./patient');
+const Chief = require('./chief');
+const HealthCenter = require('./healthCenter');
 
 const medicationHistorySchema = new mongoose.Schema({
   drugs: {
@@ -25,6 +27,18 @@ const healthRecordSchema = new mongoose.Schema({
   patient: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'Patient',
+    required: true,
+  },
+
+  healthCenter: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'HealthCenter',
+    required: true,
+  },
+
+  chief: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'Chief',
     required: true,
   },
 

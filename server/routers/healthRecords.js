@@ -2,15 +2,16 @@ const express = require('express');
 const router = express.Router();
 const HealthRecord = require('../schemas/healthRecord');
 const Patient = require('../schemas/patient');
+const Chief = require('../schemas/chief');
+const HealthCenter = require('../schemas/healthCenter');
 
 // get all history based on the patient ID
 router.get('/:id', async (req, res) => {
-
   try {
     const patient = await Patient.findById(req.params.id);
 
     if (!patient) {
-    return res.status(404).json({ message: 'No patient found' });
+      return res.status(404).json({ message: 'No patient found' });
     }
 
     const records = await HealthRecord.find({ patient: patient._id });
@@ -34,6 +35,14 @@ router.post('/', async (req, res) => {
     const patient = await Patient.findById(req.body.patient);
     if (!patient)
       return res.status(404).json({ message: 'patientID cannot be found' });
+
+    const healthCenter = await HealthCenter.findById(req.body.healthCenter);
+    if (!healthCenter)
+      return res.status(404).json({ message: 'Health center cannot be found' });
+
+    const chief = await Chief.findById(req.body.chief);
+    if (!chief)
+      return res.status(404).json({ message: 'Chief cannot be found' });
 
     await newHealthRecord.save();
     res.status(201).json({

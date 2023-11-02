@@ -15,7 +15,6 @@ router.get('/:id', async (req, res) => {
     res.status(404).json({ message: 'Chief info cannot be found' });
   }
 
-  res.json({ chief: chiefId });
 });
 
 router.post('/', async (req, res) => {

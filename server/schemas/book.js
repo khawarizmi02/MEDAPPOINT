@@ -3,12 +3,12 @@ const Patient = require('./patient');
 const HealthCenter = require('./healthCenter');
 
 const insuranceSchema = new mongoose.Schema({
-  name: {
+  company: {
     type: String,
     required: true,
   },
 
-  description: {
+  memberId: {
     type: String,
     required: true,
   },

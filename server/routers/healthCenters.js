@@ -16,6 +16,20 @@ router.get('/', async (req, res) => {
   }
 });
 
+// get one health center
+router.get('/:id', async (req, res) => {
+  try{
+    const healthCenter = await HealthCenter.findById(req.params.id);
+
+    if(!healthCenter) 
+      return res.status(404).json({ message: 'cannot find health center' });
+
+    res.status(200).json({ message: 'Healt center has been found', healthCenter: healthCenter })
+  }catch (error){
+    res.status(404).json({ message: 'cannot find health center' });
+  }
+})
+
 // add new health center
 router.post('/', async (req, res) => {
   const newHealthCenter = new HealthCenter(req.body);
