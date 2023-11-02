@@ -33,26 +33,31 @@ const HistoryItem = ({
           <p>{pastMedicalHistory}</p>
         </div>
 
+				<div className='bg-gray-100 w-full py-3 flex'>
+					<div className='font-bold px-2'>Chief Complain (cc):</div>
+					<div className='pl-2'>{chiefComplain}</div>
+				</div>
+
         <div className="bg-white pt-5 p-5">
           <h4 className="font-bold">Medication History:</h4>
-					<table className="table">
+					<table className="table-auto w-full">
   				<thead>
     			<tr>
-     		 	<th>#</th>
-      		<th>Drugs</th>
-      		<th>Indication</th>
-      		<th>Notes</th>
-      		<th>Duration</th>
+     		 	<th className='px-1 py-2'>#</th>
+      		<th className='px-1 py-2'>Drugs</th>
+      		<th	className='px-1 py-2'>Indication</th>
+      		<th className='px-1 py-2'>Notes</th>
+      		<th className='px-1 py-2'>Duration</th>
     			</tr>
   				</thead>
   				<tbody>
     			{medicationHistory.map((item, index) => (
-      		<tr key={index}>
-        		<td>{index + 1}</td>
-        		<td>{item.drugs}</td>
-        		<td>{item.indication}</td>
-        		<td>{item.notes}</td>
-        		<td>{item.durations} days</td>
+      		<tr key={index} className='bg-gray-100'>
+        		<td className='border px-1 py-2'>{index + 1}</td>
+        		<td className='border px-1 py-2'>{item.drugs}</td>
+        		<td className='border px-1 py-2'>{item.indication}</td>
+        		<td className='border px-1 py-2'>{item.notes}</td>
+        		<td className='border px-1 py-2'>{item.durations} days</td>
       		</tr>
     			))}
   				</tbody>
