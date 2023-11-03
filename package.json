@@ -1,0 +1,12 @@
+{
+  "dependencies": {
+    "@emotion/react": "^11.11.1",
+    "@emotion/styled": "^11.11.0",
+    "@material-ui/pickers": "^3.3.11",
+    "@mui/material": "^5.14.16",
+    "@mui/styled-engine-sc": "^6.0.0-alpha.4",
+    "@mui/x-date-pickers": "^6.17.0",
+    "dayjs": "^1.11.10",
+    "styled-components": "^6.1.0"
+  }
+}
