@@ -24,9 +24,9 @@ const Form = () => {
 		]
 	});
 
-	const handleChange = (e) => {
-		setFormData({ ...formData, [e.target.name]: e.target.value });
-	};
+	// const handleChange = (e) => {
+	// 	setFormData({ ...formData, [e.target.name]: e.target.value });
+	// };
 
 	const handleSubmit = async (e) => {
 		e.preventDefault();
@@ -38,67 +38,55 @@ const Form = () => {
 		}
 	};
 
+	const handleChange = (event) => {
+		const { name, value } = event.target;
+		let values;
+	  
+		if (name === 'diagnosis') {
+		  values = value.split(','); // split the input on commas for diagnosis field
+		} else {
+		  values = value; // for other fields, store the entire input value
+		}
+	  
+		setFormData({ ...formData, [name]: values });
+	  };
+
 	return (
-		<div className='flex flex-col items-center justify-center bg-grey-100 min-h-screen '>
+		<div className='flex flex-col items-center justify-center bg-grey-100 min-h-screen bg-blue-400'>
 			<form onSubmit={handleSubmit} className='w-full max-w-md rounded bg-white p-6 m-4'>
-				<label className='block text-gray-700 text-sm font-bold mb-2'>
-					Patient:
-					<input
-						type="text"
-						name="patient"
-						value={formData.patient}
-						onChange={handleChange}
-						className='shadow appearance-none border rounded w-full py-2 px-3' />
-				</label>
-				<label className='block text-gray-700 text-sm font-bold mb-2'>
-					Health Center:
-					<input
-						type="text"
-						name="healthCenter"
-						value={formData.healthCenter}
-						onChange={handleChange}
-						className='shadow appearance-none border rounded w-full py-2 px-3'
-					/>
-				</label>
-				<label className='block text-gray-700 text-sm font-bold mb-2'>
-					Chief:
-					<input
-						type="text"
-						name="chief"
-						value={formData.chief}
-						onChange={handleChange}
-						className='shadow appearance-none border rounded w-full py-2 px-3'
-					/>
-				</label>
-				<label className='block text-gray-700 text-sm font-bold mb-2'>
-					Date Submit:
-					<input type="text" name="dateSubmit" value={formData.dateSubmit}
-						onChange={handleChange}
-						className='shadow appearance-none border rounded w-full py-2 px-3'
-					/>
-				</label>
-				<label className='block text-gray-700 text-sm font-bold mb-2'>
-					Reg Num:
-					<input type="text" name="regNum" value={formData.regNum}
-						onChange={handleChange}
-						className='shadow appearance-none border rounded w-full py-2 px-3'
-					/>
-				</label>
-				<label className='block text-gray-700 text-sm font-bold mb-2'>
-					Diagnosis:
+
 					<input type="text" name="diagnosis" value={formData.diagnosis}
-						onChange={handleChange}
+						onChange={handleChange} placeholder='Diagnosis' className='border-b-2 border-black mb-4 w-full'
 
 					/>
-				</label>
-				<label className='block text-gray-700 text-sm font-bold mb-2'>
-					Chief Complain:
-					<input type="text" name="chiefComplain" value={formData.chiefComplain} onChange={handleChange} />
-				</label>
-				<label className='block text-gray-700 text-sm font-bold mb-2'>
-					HPI:
-					<input type="text" name="HPI" value={formData.HPI} onChange={handleChange} />
-				</label>
+				<label className=' text-gray-700 text-sm font-bold mb-2 flex flex-col'>
+					Chief Complain:</label>
+					<textarea type="text" name="chiefComplain" value={formData.chiefComplain} onChange={handleChange} className='h-[90px] border border-gray-400 w-full' ></textarea>
+				
+				<label className=' text-gray-700 text-sm font-bold mb-2 flex flex-col'>
+					HPI:</label>
+					<textarea type="text" name="HPI" value={formData.HPI} onChange={handleChange} className='h-[90px] border border-gray-400 w-full' ></textarea>
+				
+				<label className=' text-gray-700 text-sm font-bold mb-2 flex flex-col'>
+					PMHx:</label>
+					<textarea type="text" name="PMHx" value={formData.PMHx} onChange={handleChange} className='h-[90px] border border-gray-400 w-full' ></textarea>
+				
+		
+
+
+				<h1 className='text-gray-700 text-sm font-bold mb-2 flex flex-col mt-8'>Medication History:</h1>
+				<textarea type="text" name="drugs" value={formData.drugs}
+					onChange={handleChange} placeholder='Drugs (separate with comma)' className='border-b-2 border-black mb-4 w-full h-8'
+				></textarea>
+				<input type="text" name="indication" value={formData.indication}
+					onChange={handleChange} placeholder='Indication' className='border-b-2 border-black mb-4 w-full'
+				/>
+				<input type="text" name="notes" value={formData.notes}
+					onChange={handleChange} placeholder='Notes' className='border-b-2 border-black mb-4 w-full'
+				/>
+				<input type="text" name="duration" value={formData.duration}
+					onChange={handleChange} placeholder='Duration' className='border-b-2 border-black mb-4 w-full'
+				/>
 				{/* Add more form fields here */}
 				<div className='flex items-center justify-between'>
 					<button className='bg-blue-500 hover:bg-blue-700 text-white font-bold 

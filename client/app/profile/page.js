@@ -6,6 +6,8 @@ import { useState, useEffect } from 'react';
 
 
 const Profile = () => {
+
+
     const [patient, setPatient] = useState([])
     useEffect(()=> {
         const fetchPatient = async() => {
@@ -16,6 +18,8 @@ const Profile = () => {
         fetchPatient()
     },[])
     console.log(patient)
+
+    
 return (
 <div className="flex flex-col items-center">
             <ProfileItems 
