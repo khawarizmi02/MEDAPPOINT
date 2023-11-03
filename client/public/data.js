@@ -14,6 +14,6 @@ export const stateList = [
 
 export const specialization = [""]
 
-export const insurance = [""]
+export const insurance = ["A","B"]
 
 
