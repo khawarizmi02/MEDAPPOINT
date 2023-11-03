@@ -1,9 +1,9 @@
 "use client";
-
 import React, { useState } from 'react';
 import axios from 'axios';
 
 const Form = () => {
+
 	const [formData, setFormData] = useState({
 		patient: '',
 		healthCenter: '',
@@ -101,8 +101,7 @@ const Form = () => {
 				</label>
 				{/* Add more form fields here */}
 				<div className='flex items-center justify-between'>
-					<button className='bg-blue-500 hover:bg-blue-700 text-white font-bold 
-														 py-2 px-4 rounded focus:shadow-outline'>
+					<button type="submit" className='bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:shadow-outline'>
 						Submit
 					</button>
 				</div>
