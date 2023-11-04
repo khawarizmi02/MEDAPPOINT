@@ -1,7 +1,10 @@
 import Image from 'next/image';
 import Link from 'next/link';
+import * as React from 'react';
+
 
 export default function Home() {
+
 	return (
 		<div className="flex flex-col justify-center items-center">
 			<div className="font-bold text-[50px] py-3 text-center w-full bg-green-100">
@@ -24,5 +27,7 @@ export default function Home() {
 				<Link href="/post-report"> Post Report Page </Link>
 			</div>
 		</div>
+
+		
 	);
 }
