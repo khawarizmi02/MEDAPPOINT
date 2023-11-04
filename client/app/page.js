@@ -1,7 +1,5 @@
-import Image from 'next/image';
 import Link from 'next/link';
-import * as React from 'react';
-
+import React from 'react';
 
 export default function Home() {
 
@@ -25,9 +23,7 @@ export default function Home() {
 			</div>
 			<div className="bg-red-50 py-3 my-3 px-3">
 				<Link href="/post-report"> Post Report Page </Link>
-			</div>
+			</div>			
 		</div>
-
-		
 	);
 }
