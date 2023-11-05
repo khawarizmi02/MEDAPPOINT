@@ -11,14 +11,14 @@ app.use(bodyParser.json());
 app.use(cors());
 
 app.get('/', function (req, res) {
-  res.send('Hello World');
+	res.send('Hello World');
 });
 
 mongoose.connect(process.env.MONGODB_CONNECT);
 const db = mongoose.connection;
 db.on('error', (error) => console.log(error));
 db.once('open', () =>
-  console.log(`MongoDB connected on ${process.env.MONGODB_CONNECT}`)
+	console.log(`MongoDB connected on ${process.env.MONGODB_CONNECT}`)
 );
 
 app.use(express.json());
@@ -38,6 +38,12 @@ app.use('/healthCenter', healthCenterRouter);
 const bookRouter = require('./routers/books');
 app.use('/book', bookRouter);
 
+const queRouter = require('./routers/queues');
+app.use('/que', queRouter);
+
+const testRouter = require('./routers/test');
+app.use('/test', testRouter);
+
 app.listen(PORT, () =>
-  console.log(`Server running on http://localhost:${PORT}`)
+	console.log(`Server running on http://localhost:${PORT}`)
 );
