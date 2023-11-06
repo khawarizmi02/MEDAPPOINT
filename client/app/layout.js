@@ -1,6 +1,7 @@
 "use client"
 import React, { useState } from 'react';
 import { Inter } from 'next/font/google'
+import Link from 'next/link'
 import './globals.css'
 
 const inter = Inter({ subsets: ['latin'] })
@@ -20,37 +21,18 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={inter.className}>
-      <nav className='bg-gray-800'>
-          <div className='mx-auto max-w-7xl'>
-            <div className='relative flex h-16 items-center justify-between'>
-              <div className='flex flex-1 items-center justify-center sm:items-stretch sm:justify-start'>
-                <div className='flex flex-shrink-0 items-center'>
-                  {/* <img class="h-8 w-auto" src="" alt="MedAppoint" /> */}
-                  <h2 className='font-bold text-white text-2xl'>MedAppoint</h2>
-                </div>
-                <div className='hidden sm:ml-6 sm:block'>
-                  <div className='flex'>
-                    <a href="/booking" className='bg-gray-900 text-white rounded-md px-3 py-2 text-sm font-medium' aria-current="page">Booking</a>
-                    <a href="#" className='text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium' onClick={togglePopup}>Queque</a>
-                    <a href="#" className='text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium'>Try Premium</a>
-                  </div>
-                </div>
-              </div>
-
-              <div className='absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0'>
-                <div className='relative ml-3'>
-                  <div>
-                    <button type="button" className='relative flex rounded-full bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800' id="user-menu-button" aria-expanded="false" aria-haspopup="true">
-                      <span className='absolute -inset-1.5'></span>
-                      <span className='sr-only'>Open user menu</span>
-                      <img className='h-8 w-8 rounded-full' src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="" />
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </nav>
+      <nav className="fixed top-0 left-0 right-0 bg-white z-50 flex items-center justify-between p-3">
+        <a href="/"><img src="/logo.png" alt="logo" className="w-30 h-10 ml-20" /></a>
+					
+				<div className="flex space-x-12 mr-20 items-center">
+				<Link href="/profile">Profile</Link>
+				<Link href="/post-report">Post Report</Link>
+				<Link href="/history">History</Link>
+				<Link href="/queue">Queue</Link>
+				<Link href="/queue">Try Premium</Link>
+				<button className='rounded-lg bg-[#df0000] p-1 px-3 text-white'><Link href="/booking">My Booking</Link></button>
+				</div>
+			</nav>
         {children}
 
           {popupVisible && (
