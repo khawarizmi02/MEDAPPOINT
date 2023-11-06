@@ -28,9 +28,6 @@ export default function Home() {
 			<div className="bg-red-50 py-3 my-3 px-3">
 				<Link href="/post-report"> Post Report Page </Link>
 			</div>
-			<div className="bg-red-50 py-3 my-3 px-3">
-				<Link href="/queue"> Queue Page </Link>
-			</div>
 
 			{/* <div className="bg-red-50 py-3 my-3 px-3">
 				{loading ? null :
