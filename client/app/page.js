@@ -1,7 +1,11 @@
 import Link from 'next/link';
 import React from 'react';
+// import { useSession } from 'next-auth/react';
 
 export default function Home() {
+
+	// const { data: session, status } = useSession();
+	// const loading = status === 'loading';
 
 	return (
 		<div className="flex flex-col justify-center items-center">
@@ -23,7 +27,14 @@ export default function Home() {
 			</div>
 			<div className="bg-red-50 py-3 my-3 px-3">
 				<Link href="/post-report"> Post Report Page </Link>
-			</div>			
+			</div>
+
+			{/* <div className="bg-red-50 py-3 my-3 px-3">
+				{loading ? null :
+					session
+						? <div>Signed in as {session.user.email}</div>
+						: <div>Not signed in</div>}
+			</div> */}
 		</div>
 	);
 }
