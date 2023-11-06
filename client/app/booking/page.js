@@ -27,6 +27,7 @@ export default function Home() {
 	const [selectedDate, setSelectedDate] = useState(new Date());
 	const [selectedSession, setSelectedSession] = useState(null);
 	const [hospital, setHospital] = useState([]);
+	const [formattedFormData, setFormattedFormData] = useState({});
 
 	const date = new Date(selectedDate);
 	const dayjsDate = dayjs(date).format('YYYY-MM-DD');
@@ -172,13 +173,13 @@ export default function Home() {
 				<div ref={div1Ref} className='p-3 my-24 bg-red-50 w-3/5 h-5/7 rounded-2xl space-y-2'>
 					<div className='flex flex-row'>
 						<div>
-						<LocalizationProvider dateAdapter={AdapterDayjs}>
-							<DemoItem>
-  								<DateCalendar views={['day']} onChange={handleDateChange}/>
-							</DemoItem>
-    					</LocalizationProvider>
+							<LocalizationProvider dateAdapter={AdapterDayjs}>
+								<DemoItem>
+									<DateCalendar views={['day']} onChange={handleDateChange} />
+								</DemoItem>
+							</LocalizationProvider>
 						</div>
-						
+
 						<div className='w-1/3'>
 							<label
 								for="session"
