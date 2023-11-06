@@ -23,7 +23,7 @@
     "$oid": "65406bbd68cc89992fdb4dbd"
   },
   "name": "Malaysia General Hospital",
-  "address": "123 Jalan Malaysia",
+  "address": "123, Jalan Malaysia",
   "phoneNum": "012-345-6789",
   "email": "info@malaysiahospital.com",
   "__v": 0
@@ -33,7 +33,7 @@
     "$oid": "65406bc368cc89992fdb4dbf"
   },
   "name": "Kuala Lumpur Medical Center",
-  "address": "456 Jalan Kuala Lumpur",
+  "address": "456, Jalan Kuala Lumpur",
   "phoneNum": "011-111-2222",
   "email": "info@klmedicalcenter.com",
   "__v": 0
@@ -43,7 +43,7 @@
     "$oid": "65406bd368cc89992fdb4dc1"
   },
   "name": "Penang Health Clinic",
-  "address": "789 Jalan Penang",
+  "address": "789, Jalan Penang",
   "phoneNum": "013-333-4444",
   "email": "info@penangclinic.com",
   "__v": 0

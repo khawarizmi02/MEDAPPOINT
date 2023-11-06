@@ -87,4 +87,315 @@
     }
   ],
   "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65430e2e7e0cc55433c0b6cf"
+  },
+  "patient": {
+    "$oid": "653d0d0f68f2e28c3741ed26"
+  },
+  "healthCenter": {
+    "$oid": "653f4d7884c78f3d47af0856"
+  },
+  "chief": {
+    "$oid": "654069c968cc89992fdb4dbb"
+  },
+  "dateSubmit": {
+    "$date": "2023-10-28T12:00:00.000Z"
+  },
+  "regNum": 102,
+  "diagnosis": "Flue",
+  "chiefComplain": "sakit tekak",
+  "HPI": "Patient started showing symptoms 2 days ago with a mild sore throat which intensified the next day. A runny nose began yesterday evening.",
+  "PMHx": [
+    "Allergy to Penicillin"
+  ],
+  "medicationHistory": [
+    {
+      "drugs": "ubat batuk",
+      "indication": "Hghpertension",
+      "notes": "Take twice a day after meals",
+      "durations": 3,
+      "_id": {
+        "$oid": "65430e2e7e0cc55433c0b6d0"
+      }
+    },
+    {
+      "drugs": "ubat sakit tekak",
+      "indication": "bacterial infection",
+      "notes": "Take once daily",
+      "durations": 5,
+      "_id": {
+        "$oid": "65430e2e7e0cc55433c0b6d1"
+      }
+    }
+  ],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6545ec18ac8b019c38c4cd5d"
+  },
+  "patient": {
+    "$oid": "653d0d0f68f2e28c3741ed26"
+  },
+  "healthCenter": {
+    "$oid": "653f4d7884c78f3d47af0856"
+  },
+  "chief": {
+    "$oid": "654069c968cc89992fdb4dbb"
+  },
+  "dateSubmit": {
+    "$date": "2023-10-28T12:00:00.000Z"
+  },
+  "regNum": 102,
+  "diagnosis": "Demam batuk",
+  "chiefComplain": "sakit tekak",
+  "HPI": "Patient started showing symptoms 2 days ago with a mild sore throat which intensified the next day. A runny nose began yesterday evening.",
+  "PMHx": [
+    "Allergy to Penicillin"
+  ],
+  "medicationHistory": [
+    {
+      "drugs": "ubat Demam",
+      "indication": "Hghpertension",
+      "notes": "Take twice a day after meals",
+      "durations": 3,
+      "_id": {
+        "$oid": "6545ec18ac8b019c38c4cd5e"
+      }
+    },
+    {
+      "drugs": "antibitotik",
+      "indication": "bacterial infection",
+      "notes": "Take once daily",
+      "durations": 5,
+      "_id": {
+        "$oid": "6545ec18ac8b019c38c4cd5f"
+      }
+    }
+  ],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65471ab72a14bed83a8534d8"
+  },
+  "patient": {
+    "$oid": "653d0d0f68f2e28c3741ed26"
+  },
+  "healthCenter": {
+    "$oid": "653f4d7884c78f3d47af0856"
+  },
+  "chief": {
+    "$oid": "654069c968cc89992fdb4dbb"
+  },
+  "dateSubmit": {
+    "$date": "2023-10-28T12:00:00.000Z"
+  },
+  "regNum": 102,
+  "diagnosis": "Demam biasa",
+  "chiefComplain": "sakit dagu",
+  "HPI": "Patient started showing symptoms 2 days ago with a mild sore throat which intensified the next day. A runny nose began yesterday evening.",
+  "PMHx": [
+    "Allergy to Penicillin",
+    "allergy to ariff"
+  ],
+  "medicationHistory": [
+    {
+      "drugs": "ubat Demam",
+      "indication": "Hghpertension",
+      "notes": "Take twice a day after meals",
+      "durations": 3,
+      "_id": {
+        "$oid": "65471ab72a14bed83a8534d9"
+      }
+    },
+    {
+      "drugs": "antibitotik",
+      "indication": "bacterial infection",
+      "notes": "Take once daily",
+      "durations": 5,
+      "_id": {
+        "$oid": "65471ab72a14bed83a8534da"
+      }
+    }
+  ],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65471f1fd3a512e391058332"
+  },
+  "patient": {
+    "$oid": "653d0d0f68f2e28c3741ed26"
+  },
+  "healthCenter": {
+    "$oid": "653f4d5784c78f3d47af0853"
+  },
+  "chief": {
+    "$oid": "65406ce568cc89992fdb4dc5"
+  },
+  "regNum": 12345,
+  "diagnosis": "demam",
+  "chiefComplain": "asdfasdf",
+  "HPI": "asdfsdf",
+  "PMHx": [
+    "asdf",
+    "asdf"
+  ],
+  "medicationHistory": [
+    {
+      "drugs": "asdfsdf",
+      "indication": "asdfsdf",
+      "notes": "asdfsdf",
+      "durations": 8,
+      "_id": {
+        "$oid": "65471f1fd3a512e391058333"
+      }
+    }
+  ],
+  "dateSubmit": {
+    "$date": "2023-11-05T04:50:39.535Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65471fafd3a512e39105833b"
+  },
+  "patient": {
+    "$oid": "653d0d0f68f2e28c3741ed26"
+  },
+  "healthCenter": {
+    "$oid": "653f4d5784c78f3d47af0853"
+  },
+  "chief": {
+    "$oid": "65406ce568cc89992fdb4dc5"
+  },
+  "regNum": 12345,
+  "diagnosis": "demam",
+  "chiefComplain": "asdfsadfasdf",
+  "HPI": "asdfasdfasdf",
+  "PMHx": [
+    "asdfasdf",
+    "asdfasdf"
+  ],
+  "medicationHistory": [
+    {
+      "drugs": "asdfasdfasf",
+      "indication": "zxczxcvz",
+      "notes": "asdfasdf",
+      "durations": 1,
+      "_id": {
+        "$oid": "65471fafd3a512e39105833c"
+      }
+    },
+    {
+      "drugs": "asdfasdf",
+      "indication": "asdfs",
+      "notes": "asdfsadf",
+      "durations": 3,
+      "_id": {
+        "$oid": "65471fafd3a512e39105833d"
+      }
+    }
+  ],
+  "dateSubmit": {
+    "$date": "2023-11-05T04:53:03.357Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65472005d3a512e391058345"
+  },
+  "patient": {
+    "$oid": "653d0d0f68f2e28c3741ed26"
+  },
+  "healthCenter": {
+    "$oid": "653f4d5784c78f3d47af0853"
+  },
+  "chief": {
+    "$oid": "65406ce568cc89992fdb4dc5"
+  },
+  "regNum": 12345,
+  "diagnosis": "demam",
+  "chiefComplain": "asdfsadfasdf",
+  "HPI": "asdfasdfasdf",
+  "PMHx": [
+    "asdfasdf",
+    "asdfasdf"
+  ],
+  "medicationHistory": [
+    {
+      "drugs": "asdfasdfasf",
+      "indication": "zxczxcvz",
+      "notes": "asdfasdf",
+      "durations": 1,
+      "_id": {
+        "$oid": "65472005d3a512e391058346"
+      }
+    },
+    {
+      "drugs": "asdfasdf",
+      "indication": "asdfs",
+      "notes": "asdfsadf",
+      "durations": 3,
+      "_id": {
+        "$oid": "65472005d3a512e391058347"
+      }
+    }
+  ],
+  "dateSubmit": {
+    "$date": "2023-11-05T04:54:29.862Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65472005d3a512e391058349"
+  },
+  "patient": {
+    "$oid": "653d234aabb64d01e14c5424"
+  },
+  "healthCenter": {
+    "$oid": "653f4d5784c78f3d47af0853"
+  },
+  "chief": {
+    "$oid": "65406ce568cc89992fdb4dc5"
+  },
+  "regNum": 12345,
+  "diagnosis": "demam",
+  "chiefComplain": "asdfsadfasdf",
+  "HPI": "asdfasdfasdf",
+  "PMHx": [
+    "asdfasdf",
+    "asdfasdf"
+  ],
+  "medicationHistory": [
+    {
+      "drugs": "asdfasdfasf",
+      "indication": "zxczxcvz",
+      "notes": "asdfasdf",
+      "durations": 1,
+      "_id": {
+        "$oid": "65472005d3a512e39105834a"
+      }
+    },
+    {
+      "drugs": "asdfasdf",
+      "indication": "asdfs",
+      "notes": "asdfsadf",
+      "durations": 3,
+      "_id": {
+        "$oid": "65472005d3a512e39105834b"
+      }
+    }
+  ],
+  "dateSubmit": {
+    "$date": "2023-11-05T04:54:29.873Z"
+  },
+  "__v": 0
 }]

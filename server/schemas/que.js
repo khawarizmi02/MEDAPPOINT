@@ -5,12 +5,13 @@ const queSchema = new mongoose.Schema({
 
 	queNum: {
 		type: [Number],
-		required: true,
+		required: false,
 	},
 
 	healthCenter: {
 		type: mongoose.Schema.Types.ObjectId,
 		ref: 'HealthCenter',
+		required: true,
 	},
 });
 
