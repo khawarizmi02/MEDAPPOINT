@@ -1,22 +1,16 @@
-import { DialogContent } from '@mui/material';
-import Image from 'next/image';
 import Link from 'next/link';
+import React from 'react';
 import { AiFillSchedule } from 'react-icons/ai';
+// import { useSession } from 'next-auth/react';
 
 export default function Home() {
+
+	// const { data: session, status } = useSession();
+	// const loading = status === 'loading';
+
 	return (
 		<div className="flex flex-col justify-center items-center">
-			<nav className="fixed top-0 left-0 right-0 bg-white z-50 flex items-center justify-between p-4">
-				<img src="/logo.png" alt="logo" className="w-30 h-10 ml-20" />	
-				<div className="flex space-x-12 mr-20 items-center">
-				<Link href="/profile">Profile</Link>
-				<Link href="/post-report">Post Report</Link>
-				<Link href="/history">History</Link>
-				<button className='rounded-lg bg-[#df0000] p-1 px-3 text-white'><Link href="/booking">My Booking</Link></button>
-				</div>
-			</nav>
-			<div>
-				{/* <img src="/hero.png" alt="hero" className="w-screen h-screen z-[-99]" /> */}
+
 				<div className="bg-[url('../public/hero.png')] w-screen h-screen bg-cover">
 					<div className='w-[588px] ml-20 pt-[150px] pl-6'>
 						<h1 className='font-bold text-6xl text-[#df0000]'>MedAppoint,</h1>
@@ -26,12 +20,8 @@ export default function Home() {
 					</div>
 					
 				</div>
-			</div>
 
-
-
-
-			{/* <div className="font-bold text-[50px] py-3 text-center w-full bg-green-100">
+			<div className="font-bold text-[50px] py-3 text-center w-full bg-green-100">
 				Medappoint
 			</div>
 
@@ -49,7 +39,17 @@ export default function Home() {
 			</div>
 			<div className="bg-red-50 py-3 my-3 px-3">
 				<Link href="/post-report"> Post Report Page </Link>
+			</div>
+			<div className="bg-red-50 py-3 my-3 px-3">
+				<Link href="/queue"> Queue Page </Link>
 			</div> */}
+
+			{/* <div className="bg-red-50 py-3 my-3 px-3">
+				{loading ? null :
+					session
+						? <div>Signed in as {session.user.email}</div>
+						: <div>Not signed in</div>}
+			</div>
 		</div>
 	);
 }
