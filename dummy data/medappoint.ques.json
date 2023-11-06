@@ -1,0 +1,55 @@
+[{
+  "_id": {
+    "$oid": "6548eccf68d870f391241feb"
+  },
+  "queNum": [
+    1234,
+    1235,
+    1236,
+    1237
+  ],
+  "healthCenter": {
+    "$oid": "65406bc368cc89992fdb4dbf"
+  },
+  "__v": 6
+},
+{
+  "_id": {
+    "$oid": "6548ecf268d870f391241fee"
+  },
+  "queNum": [],
+  "healthCenter": {
+    "$oid": "65406bc368cc89992fdb4dbf"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6548ecfb68d870f391241ff1"
+  },
+  "queNum": [],
+  "healthCenter": {
+    "$oid": "65406bc368cc89992fdb4dbf"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6548ed0568d870f391241ff4"
+  },
+  "queNum": [],
+  "healthCenter": {
+    "$oid": "65406bc368cc89992fdb4dbf"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6548ed0f68d870f391241ff7"
+  },
+  "queNum": [],
+  "healthCenter": {
+    "$oid": "65406bc368cc89992fdb4dbf"
+  },
+  "__v": 0
+}]
