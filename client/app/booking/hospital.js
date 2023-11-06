@@ -1,3 +1,4 @@
+'use client'
 import axios from 'axios';
 
 export async function getHealthCenterData() {

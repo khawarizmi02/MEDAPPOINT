@@ -1,4 +1,4 @@
-"use client"
+'use client'
 import React, { useEffect, useState } from 'react';
 import { useRef } from 'react';
 import { getHealthCenterData } from './hospital.js';
@@ -24,7 +24,6 @@ export default function Home() {
 	}
 
 	const [formData, setFormData] = useState(initialFormData);
-
 	const [selectedDate, setSelectedDate] = useState(new Date());
 	const [selectedSession, setSelectedSession] = useState(null);
 	const [hospital, setHospital] = useState([]);
@@ -173,18 +172,13 @@ export default function Home() {
 				<div ref={div1Ref} className='p-3 my-24 bg-red-50 w-3/5 h-5/7 rounded-2xl space-y-2'>
 					<div className='flex flex-row'>
 						<div>
-							<LocalizationProvider dateAdapter={AdapterDayjs}>
-								<DemoContainer components={['DateCalendar', 'DateCalendar']}>
-									<DemoItem>
-										<DateCalendar
-											views={['day']}
-											value={formData.selectedDate}
-											onChange={handleChange}
-										/>
-									</DemoItem>
-								</DemoContainer>
-							</LocalizationProvider>
+						<LocalizationProvider dateAdapter={AdapterDayjs}>
+							<DemoItem>
+  								<DateCalendar views={['day']} onChange={handleDateChange}/>
+							</DemoItem>
+    					</LocalizationProvider>
 						</div>
+						
 						<div className='w-1/3'>
 							<label
 								for="session"
