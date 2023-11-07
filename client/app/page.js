@@ -24,4 +24,4 @@ export default function Home() {
 				</div>
 	)
 	}
->>>>>>> fe155ea86ae195fe4bb945f1f5c21ba0c9398c6b
+
