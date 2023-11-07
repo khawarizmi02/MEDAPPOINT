@@ -106,10 +106,10 @@ export default function Home() {
 	};
 
 	return (
-		<main className='w-full h-full bg-teal-900'>
+		<main className='w-full h-full bg-[#8DDBD1]'>
 			<form onSubmit={handleSubmit} className='w-full h-full flex flex-col items-center'>
-				<div ref={div0Ref} className='p-3 my-24 bg-red-50 w-3/5 h-5/7 rounded-2xl space-y-2'>
-					<h2 className='ml-3 text-base font-semibold leading-7 text-gray-900'>Appointment Details</h2>
+				<div ref={div0Ref} className='p-3 my-24 bg-[#A7E2DB] w-3/5 h-5/7 rounded-2xl space-y-2'>
+					<h1 className='ml-3 text-base font-bold leading-7 text-gray-900'>Appointment Details</h1>
 					<div className='mt-5 mx-3'>
 						<div className='grid grid-cols-2 gap-2 pb-7'>
 							<div className='mt-5'>
@@ -181,7 +181,7 @@ export default function Home() {
 						</a>
 						<button
 							type="button"
-							className="rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold 
+							className="mr-4 rounded-md bg-[#159686] px-3 py-2 text-sm font-semibold 
 							text-white shadow-sm hover:bg-indigo-500 focus-visible:outline 
 							focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
 							onClick={() => scrollToNext(div1Ref)}
@@ -191,9 +191,9 @@ export default function Home() {
 					</div>
 				</div>
 
-				<div ref={div1Ref} className='p-3 my-24 bg-red-50 w-3/5 h-5/7 rounded-2xl space-y-2'>
-					<div className='flex flex-row'>
-						<div>
+				<div ref={div1Ref} className='p-3 my-24 bg-[#A7E2DB] w-3/5 h-5/7 rounded-2xl space-y-2 flex flex-col items-center'>
+					<div className='flex flex-row items-center justify-center space-x-12'>
+						<div className='w-[45] h-auto'>
 							<LocalizationProvider dateAdapter={AdapterDayjs}>
 								<DemoItem>
 									<DateCalendar views={['day']} onChange={handleDateChange} />
@@ -204,7 +204,7 @@ export default function Home() {
 						<div className='w-1/3'>
 							<label
 								for="session"
-								className='block text-sm font-medium text-gray-900'
+								className='block text-sm font-bold text-gray-900'
 							>
 								Session
 							</label>
@@ -232,7 +232,7 @@ export default function Home() {
 							Back
 						</button>
 
-						<button type="button" className='rounded-md bg-indigo-600 px-3 
+						<button type="button" className='rounded-md bg-[#159686] px-3 
 							py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 
 							focus-visible:outline focus-visible:outline-2 
 							focus-visible:outline-offset-2 focus-visible:outline-indigo-600'
