@@ -1,3 +1,4 @@
+
 import Link from 'next/link';
 import React from 'react';
 import { AiFillSchedule } from 'react-icons/ai';
@@ -23,3 +24,4 @@ export default function Home() {
 				</div>
 	)
 	}
+>>>>>>> fe155ea86ae195fe4bb945f1f5c21ba0c9398c6b
