@@ -18,6 +18,7 @@ export default function RootLayout({ children }) {
 		setPopupVisible(!popupVisible);
 	};
 
+<<<<<<< HEAD
 	return (
 		<html lang="en">
 			<body className={inter.className}>
@@ -34,6 +35,24 @@ export default function RootLayout({ children }) {
 					</div>
 				</nav>
 				{children}
+=======
+  return (
+    <html lang="en">
+      <body className={inter.className}>
+      <nav className="fixed top-0 left-0 right-0 bg-white z-50 flex items-center justify-between p-3">
+        <a href="/"><img src="/logo.png" alt="logo" className="w-30 h-10 ml-20" /></a>
+					
+				<div className="flex space-x-12 mr-20 items-center">
+				<Link href="/profile">Profile</Link>
+				<Link href="/post-report">Post Report</Link>
+				<Link href="/history">History</Link>
+				<Link href="/queue">Queue</Link>
+				<Link href="/queue">Try Premium</Link>
+				<button className='rounded-lg bg-[#df0000] p-1 px-3 text-white'><Link href="/booking">My Booking</Link></button>
+				</div>
+			</nav>
+        {children}
+>>>>>>> fe155ea86ae195fe4bb945f1f5c21ba0c9398c6b
 
 				{popupVisible && (
 					<div id="mypopup" className='fixed inset-0 bg-gray-500 bg-opacity-75 z-10' >
