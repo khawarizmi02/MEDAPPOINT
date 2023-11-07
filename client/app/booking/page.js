@@ -7,6 +7,8 @@ import { DemoContainer, DemoItem } from '@mui/x-date-pickers/internals/demo';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { DateCalendar } from '@mui/x-date-pickers/DateCalendar';
+import { set } from 'react-hook-form';
+import axios from "axios";
 
 export default function Home() {
 
@@ -30,7 +32,7 @@ export default function Home() {
 	const [formattedFormData, setFormattedFormData] = useState({});
 
 	const date = new Date(selectedDate);
-	const dayjsDate = dayjs(date).format('YYYY-MM-DD');
+	const dayjsDate = dayjs(date).toISOString();
 
 	useEffect(() => {
 		const fetchData = async () => {
@@ -53,13 +55,32 @@ export default function Home() {
 	const handleSubmit = async (e) => {
 		e.preventDefault();
 
-		console.log(formData);
-		// try {
-		// 	const response = await axios.post('http://localhost:5000/healthrecord', formData);
-		// 	console.log(response.data);
-		// } catch (error) {
-		// 	console.error('Error submitting form', error);
-		// }
+		const insurance = {
+			company: formData.insuranceCompany,
+			memberId: formData.insuranceID,
+		}
+
+		const healthCenter = hospital.find((item) => item.name === formData['hospital-name']);
+
+		setFormattedFormData({
+			...formattedFormData,
+			patient: "653d230fabb64d01e14c5422",
+			healthCenter: healthCenter._id,
+			bookTime: formData.selectedDate,
+			onSession: false,
+			medicalConcern: formData.medicalConcern,
+			bookSession: formData.session,
+			insurance: insurance,
+		});
+
+		console.log(formattedFormData)
+
+		try {
+			const response = await axios.post('http://localhost:5000/book', formattedFormData);
+			console.log(response.data);
+		} catch (error) {
+			console.error('Error submitting form', error);
+		}
 	};
 
 	function setSession(event) {
