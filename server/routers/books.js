@@ -9,7 +9,7 @@ router.get('/:id', async (req, res) => {
 	const patientId = req.params.id;
 
 	try {
-		const appointment = await Book.find({ patient: patientId, bookTime: { $lte: Date.now() } });
+		const appointment = await Book.findOne({ patient: patientId, bookTime: { $lte: Date.now() } });
 
 		if (!appointment) return res.status(404).json({ message: 'Appointment cannot be found' })
 
@@ -17,7 +17,6 @@ router.get('/:id', async (req, res) => {
 	} catch (error) {
 		res.status(500).json({ message: 'Booking appointment cannot be found' });
 	}
-	res.json({ patientId: patientId });
 });
 
 // set a new booking date
