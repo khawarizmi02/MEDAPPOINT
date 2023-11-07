@@ -64,7 +64,7 @@ export default function Home() {
 
 		setFormattedFormData({
 			...formattedFormData,
-			patient: "653d230fabb64d01e14c5422",
+			patient: "653fa8f77e269d6aa672e5fc",
 			healthCenter: healthCenter._id,
 			bookTime: formData.selectedDate,
 			onSession: false,
@@ -215,7 +215,7 @@ export default function Home() {
 								className='block w-full rounded-md border-0 pl-1.5 py-1.5 text-gray-900 
 								shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset 
 								focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6'
-								onChange={(e) => setSession(e)}
+								onChange={handleChange}
 							>
 								<option value='Morning'> Morning </option>
 								<option value='Evening'> Evening </option>
