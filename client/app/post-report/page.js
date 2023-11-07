@@ -59,8 +59,8 @@ const Form = () => {
 
 
 	return (
-		<div className='flex flex-col items-center justify-center bg-grey-100 min-h-screen bg-blue-400'>
-			<div className='w-full max-w-md rounded bg-white p-6 m-4'>
+		<div className='flex flex-col items-center justify-center bg-grey-100 min-h-screen bg-[#8DDBD1]'>
+			<div className='w-full max-w-md bg-white p-6 m-4 mt-20 rounded-3xl'>
 
 				<input
 					type="text"
@@ -68,7 +68,7 @@ const Form = () => {
 					value={diagnosis}
 					onChange={(e) => setDiagnosis(e.target.value)}
 					placeholder='Diagnosis'
-					className='border-b-2 border-black mb-4 w-full'
+					className='border-b-2 border-black mb-4 w-full mt-2'
 				/>
 
 				<label className=' text-gray-700 text-sm font-bold mb-2 flex flex-col'>
@@ -78,7 +78,7 @@ const Form = () => {
 					name="chiefComplain"
 					value={chiefComplain}
 					onChange={(e) => setChiefComplain(e.target.value)}
-					className='h-[90px] border border-gray-400 w-full'
+					className='h-[90px] border border-gray-400 w-full '
 				></textarea>
 
 				<label className=' text-gray-700 text-sm font-bold mb-2 flex flex-col'>
@@ -88,18 +88,18 @@ const Form = () => {
 					name="HPI"
 					value={HPI}
 					onChange={(e) => setHPI(e.target.value)}
-					className='h-[90px] border border-gray-400 w-full'
+					className='h-[90px] border border-gray-400 w-full mb-2'
 				></textarea>
 
-				<div className='flex items-center justify-between w-full'>
-					<label className='pr-2 text-gray-700 text-sm font-bold mb-2 flex flex-col'>
+				<div className='flex items-center justify-between w-full mt-4 mb-2'>
+					<label className='pr-2 text-gray-700 text-sm font-bold flex flex-col'>
 						PMHx:</label>
 					<input
 						type="text"
 						name="PMHx"
 						value={PMHx}
 						onChange={(e) => setPMHx(e.target.value)}
-						className='border border-gray-400 mb-2 pl-1'
+						className='border border-gray-400 pl-1 w-full mr-2'
 					></input>
 					<button
 						onClick={() => {
@@ -108,7 +108,7 @@ const Form = () => {
 								PMHx
 							]);
 						}}
-						className='bg-blue-500 p-2 m-2 rounded text-white'
+						className='bg-[#159686] px-6 rounded text-white'
 					>
 						+
 					</button>
@@ -116,18 +116,18 @@ const Form = () => {
 
 				<ul className='flex flex-col items-center'>
 					{PMHxList.map((item, index) => (
-						<li key={index} className='grid grid-cols-3 pb-2 mb-2 px-2 items-center w-full'>
+						<li key={index} className='grid grid-cols-5 m-1 items-center w-full'>
 							<div className='text-center pl-2 '>{index + 1}</div>
-							<div className='text-center px-2 '>{item}</div>
+							<div className='px-2 col-span-3 text-left '>{item}</div>
 							<button
 								onClick={() => {
 									const updatedPMHxList = [...PMHxList];
 									updatedPMHxList.splice(index, 1);
 									setPMHxList(updatedPMHxList);
 								}}
-								className='p-2 m-2 rounded bg-red-500'
+								className='ml-5 rounded bg-red-500 items-end text-white'
 							>
-								X
+								-
 							</button>
 						</li>
 					))}
@@ -136,16 +136,16 @@ const Form = () => {
 			</div>
 
 
-			<div className='w-full max-w-md rounded bg-white flex flex-col items-center justify-center pb-4 mb-3'>
+			<div className='w-full max-w-md rounded-3xl bg-white flex flex-col items-center justify-center pb-4 mb-3'>
 				<h1 className='text-gray-700 bg-white text-sm font-bold mb-2 flex flex-col mt-3'>Medication History:</h1>
-				<div className='grid grid-cols-2 bg-white px-3'>
+				<div className='grid grid-cols-2 gap-2 bg-white px-3'>
 					<input
 						type="text"
 						name="drugs"
 						value={drugs}
 						onChange={(e) => setDrugs(e.target.value)}
 						placeholder='Drugs'
-						className='border-2 px-1 border-black mb-4 w-full h-8'
+						className='border-2 px-1 border-black w-full h-8'
 					/>
 					<input
 						type="text"
@@ -153,7 +153,7 @@ const Form = () => {
 						value={indication}
 						onChange={(e) => setIndication(e.target.value)}
 						placeholder='Indication'
-						className='border-2 px-1 border-black mb-4 w-full'
+						className='border-2 px-1 border-black w-full'
 					/>
 					<input
 						type="text"
@@ -161,7 +161,7 @@ const Form = () => {
 						value={notes}
 						onChange={(e) => setNotes(e.target.value)}
 						placeholder='Notes'
-						className='border-2 px-1 border-black mb-4 w-full'
+						className='border-2 px-1 border-black w-full'
 					/>
 					<input
 						type="number"
@@ -169,12 +169,12 @@ const Form = () => {
 						value={duration}
 						onChange={(e) => setDuration(e.target.value)}
 						placeholder='Duration (days)'
-						className='border-2 px-1 border-black mb-4 w-full'
+						className='border-2 px-1 border-black w-full'
 					/>
 				</div>
 
 				<button
-					className='bg-blue-500 p-2 m-2 rounded text-white'
+					className='bg-[#159686] p-2 m-2 rounded text-white mb-6'
 					onClick={() => {
 						setMedicationHistory([
 							...medicationHistory,
@@ -194,39 +194,43 @@ const Form = () => {
 					Add Medication
 				</button>
 
-				<ul className='flex flex-col items-center'>
-					<li className='grid grid-cols-6 px-2 items-center'>
-						<div className='text-center pl-2'>#</div>
-						<div className='text-center px-2'>Drugs</div>
-						<div className='text-center px-2'>Indication</div>
-						<div className='text-center px-2'>Notes</div>
-						<div className='text-center px-2'>Duration</div>
-						<div className='text-center px-2'></div>
-					</li>
+				<table className='table-auto w-11/12 border-2 mb-2'>
+					<thead>
+						<tr >
+							<th className='px-1 py-2 text-left'>#</th>
+							<th className='px-1 py-2 text-left'>Drugs</th>
+							<th className='px-1 py-2 text-left'>Indication</th>
+							<th className='px-1 py-2 text-left'>Notes</th>
+							<th className='px-1 py-2 text-left'>Duration</th>
+							<th className='px-1 py-2 text-left'></th>
+						</tr>
+					</thead>
+					<tbody>
 					{medicationHistory.map((medication, index) => (
-						<li key={index} className='grid grid-cols-6 pb-2 mb-2 px-2 items-center'>
-							<div className='text-center pl-2 '>{index + 1}</div>
-							<div className='text-center px-2 '>{medication.drugs}</div>
-							<div className='text-center px-2 '>{medication.indication}</div>
-							<div className='text-center px-2'>{medication.notes}</div>
-							<div className='text-center px-2 '>{medication.durations}</div>
+						<tr key={index} className='bg-gray-100'>
+							<td className='border px-1 py-2 '>{index + 1}</td>
+							<td className='border px-1 py-2 '>{medication.drugs}</td>
+							<td className='border px-1 py-2 '>{medication.indication}</td>
+							<td className='border px-1 py-2'>{medication.notes}</td>
+							<td className='border px-1 py-2 '>{medication.durations}</td>
 							<button
-								className='p-2 m-2 rounded bg-red-500'
+								className='p-2 ml-2 rounded bg-red-500 text-white'
 								onClick={() => {
 									const updatedMedicationHistory = [...medicationHistory];
 									updatedMedicationHistory.splice(index, 1);
 									setMedicationHistory(updatedMedicationHistory);
 								}}
-							>X</button>
-						</li>
+							>-</button>
+						</tr>
 					))}
-				</ul>
+					</tbody>
+				</table>
 
 			</div>
 			<div className='flex items-center justify-between pb-6 mb-3'>
 				<button
 					type="submit"
-					className='bg-blue-500 hover:bg-blue-700 text-white font-bold 
+					className='bg-[#159686] hover:bg-blue-700 text-white font-bold 
 										 py-2 px-4 rounded focus:shadow-outline'
 					onClick={handleSubmit}
 				>
