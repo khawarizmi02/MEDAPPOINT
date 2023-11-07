@@ -12,20 +12,37 @@ const inter = Inter({ subsets: ['latin'] })
 // }
 
 export default function RootLayout({ children }) {
-
   const [queueList, setQueue] = useState([])
+  const [booking, setBooking] = useState({})
+  const [hospital, setHospital] = useState("")
+  const [date, setDate] = useState("")
+
   useEffect(()=> {
-    const fetchQueue = async() => {
-      const response = await axios.get('http://localhost:5000/que/65406bc368cc89992fdb4dbf');
-      setQueue(response.data.queNum);
-		  return console.log(response.data.queNum);
+    const fetchBooking = async() => {
+      try {
+        const response = await axios.get('http://localhost:5000/book/653fa8f77e269d6aa672e5fc');
+        const hospitalResponse = await axios.get(`http://localhost:5000/healthcenter/${response.data.appointmentInfo.healthCenter}`);
+        const queueResponse = await axios.get(`http://localhost:5000/que/${response.data.appointmentInfo.healthCenter}`);
+        setBooking(response.data);
+        setHospital(hospitalResponse.data.healthCenter.name);
+        setQueue(queueResponse.data.queNum);
+		    return console.log(queueResponse.data.queNum);
+      } catch (error) {
+			  return console.error('err', error);
+		  }
     }
-    fetchQueue()
-    },[])
+    fetchBooking()
+  },[])
 
   const [popupVisible, setPopupVisible] = useState(false);
+  const [notiPopup, setNotiPopup] = useState(false);
+
 	const togglePopup = () => {
   	setPopupVisible(!popupVisible);
+  };
+
+  const toggleNotification = () => {
+  	setNotiPopup(!notiPopup);
   };
 
   return (
@@ -39,7 +56,7 @@ export default function RootLayout({ children }) {
 				<Link href="/post-report">Post Report</Link>
 				<Link href="/history">History</Link>
 				<a onClick={togglePopup}>Queue</a>
-				<Link href="/queue">Try Premium</Link>
+				<a onClick={toggleNotification}>Notification</a>
 				<button className='rounded-lg bg-[#df0000] p-1 px-3 text-white'><Link href="/booking">My Booking</Link></button>
 				</div>
 			</nav>
@@ -95,6 +112,57 @@ export default function RootLayout({ children }) {
           		</div>
         		</div>
      		  )}
+
+          {notiPopup && (
+            <div id="notipopup" className='fixed inset-0 bg-gray-500 bg-opacity-75 z-10' >
+              <div className='flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0'>
+                <div id="notipopup" className='relative z-10' aria-labelledby="modal-title" role="dialog" aria-modal="true">
+
+                <div className='fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity'></div>
+                <div className='fixed inset-0 z-10 w-screen overflow-y-auto'>
+                  <div className='flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0'>
+                    <div className='relative transform overflow-hidden rounded-lg bg-white text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg'>
+
+                      <div className='flex flex-row justify-end'>
+                        <button type="button" className='bg-white rounded-md p-2 text-gray-400 hover:text-gray-500 hover:bg-gray-100' onClick={toggleNotification}>
+                        <svg className='h-6 w-6' xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                        </svg>
+                        </button>
+                      </div>
+
+                      <section className='flex flex-col items-center'>
+                        <h2 className='ml-3 text-sm leading-6 text-gray-600'>You have an appointment at: </h2>
+                        <h2 className='font-bold tracking-widest text-2xl'>{hospital}</h2>
+
+                      </section>
+
+                      <section className='grid grid-cols-3 py-3'>
+                        <div className='flex flex-col items-center'>
+                          <h2 className=''>{queueList[0]}</h2>
+                          <span className='ml-3 text-sm leading-6 text-gray-600'>current turn</span>
+                        </div>
+
+                        <div className='flex flex-col items-center'>
+                          <h2 className=''>{queueList.length}</h2>
+                          <span className='ml-3 text-sm leading-6 text-gray-600'>person ahead of you</span>
+                        </div>
+
+                        <div className='flex flex-col items-center'>
+                          <h2 className=''> ~ {queueList.length/2}</h2>
+                          <span className='ml-3 text-sm leading-6 text-gray-600'>hours estimated</span>
+                        </div>
+                      </section>
+
+                      </div>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+          )}
+
       </body>
     </html>
   )
