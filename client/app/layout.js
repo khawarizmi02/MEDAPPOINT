@@ -15,7 +15,6 @@ export default function RootLayout({ children }) {
   const [queueList, setQueue] = useState([])
   const [booking, setBooking] = useState({})
   const [hospital, setHospital] = useState("")
-  const [date, setDate] = useState("")
 
   useEffect(()=> {
     const fetchBooking = async() => {
@@ -23,10 +22,10 @@ export default function RootLayout({ children }) {
         const response = await axios.get('http://localhost:5000/book/653fa8f77e269d6aa672e5fc');
         const hospitalResponse = await axios.get(`http://localhost:5000/healthcenter/${response.data.appointmentInfo.healthCenter}`);
         const queueResponse = await axios.get(`http://localhost:5000/que/${response.data.appointmentInfo.healthCenter}`);
-        setBooking(response.data);
+        setBooking(response.data.appointmentInfo);
         setHospital(hospitalResponse.data.healthCenter.name);
         setQueue(queueResponse.data.queNum);
-		    return console.log(queueResponse.data.queNum);
+		    return console.log(response.data.appointmentInfo);
       } catch (error) {
 			  return console.error('err', error);
 		  }
@@ -132,26 +131,16 @@ export default function RootLayout({ children }) {
                       </div>
 
                       <section className='flex flex-col items-center'>
-                        <h2 className='ml-3 text-sm leading-6 text-gray-600'>You have an appointment at: </h2>
-                        <h2 className='font-bold tracking-widest text-2xl'>{hospital}</h2>
+                        <h2 className='ml-3 text-sm leading-6 text-gray-600'>Upcoming appointment at: </h2>
+                        <h2 className='font-bold tracking-wide text-2xl'>{hospital}</h2>
 
+                        {/* <h2 className='ml-3 text-sm leading-6 text-gray-600'>Be there before </h2>
+                        <h2 className='font-bold tracking-wide text-2xl'>{booking.bookTime}</h2> */}
                       </section>
 
-                      <section className='grid grid-cols-3 py-3'>
-                        <div className='flex flex-col items-center'>
-                          <h2 className=''>{queueList[0]}</h2>
-                          <span className='ml-3 text-sm leading-6 text-gray-600'>current turn</span>
-                        </div>
-
-                        <div className='flex flex-col items-center'>
-                          <h2 className=''>{queueList.length}</h2>
-                          <span className='ml-3 text-sm leading-6 text-gray-600'>person ahead of you</span>
-                        </div>
-
-                        <div className='flex flex-col items-center'>
-                          <h2 className=''> ~ {queueList.length/2}</h2>
-                          <span className='ml-3 text-sm leading-6 text-gray-600'>hours estimated</span>
-                        </div>
+                      <section className='flex flex-row justify-center py-5'>
+                        <a onClick={toggleNotification}><span class="inline-flex items-center rounded-md bg-red-50 px-2 py-1 text-l font-medium text-red-700 ring-1 ring-inset ring-red-600/10 hover:cursor-pointer">Cancel</span></a>
+                        <a onClick={toggleNotification}><span class="inline-flex items-center rounded-md bg-green-50 px-2 py-1 text-l font-medium text-green-700 ring-1 ring-inset ring-green-600/20 hover:cursor-pointer">Accept</span></a>
                       </section>
 
                       </div>
