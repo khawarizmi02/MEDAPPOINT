@@ -64,7 +64,7 @@ router.patch('/:id', async (req, res) => {
 	try {
 		const bookInfo = await Book.findOneAndUpdate(
 			{ healthCenter: req.params.id },
-			{ $set: { queNum: body.queNum } },
+			{ $set: { queNum: req.body.queNum } },
 			{ new: true }
 		);
 
@@ -74,7 +74,7 @@ router.patch('/:id', async (req, res) => {
 		res.json({ message: 'Successfully updated book', bookInfo: bookInfo });
 
 	} catch (error) {
-		res.status(404).json({ message: 'Book info cannot be found' });
+		res.status(500).json({ message: 'Book info cannot be found', error: error });
 	}
 });
 
