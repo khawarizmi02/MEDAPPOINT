@@ -6,55 +6,53 @@ const ProfileItems = ({patientName,icNumber,age,gender,race,email,phoneNumber,we
   return (
 
     <div className='bg-[#8DDBD1] w-full h-screen flex items-center justify-center'>
-      <div className='bg-[#A7E2DB] w-2/3 h-2/3 rounded-3xl flex items-center justify-center space-x-24'>
-        <div className=' flex flex-col items-center'>
-          <IoPersonCircleSharp size={250}/>
-          <h1 className='font-bold text-3xl text-center'>{patientName}</h1>
-        </div>
           
         <div className='bg-white grid grid-cols-3 gap-4 p-8 rounded-3xl'>
+            <div className='col-span-3 flex font-bold items-center text-xl text-[#19665D]'>
+              <IoPersonCircleSharp size={40}/>
+              {patientName}
+            </div>
             <div>
-              <h1 className='font-bold'>IC number</h1>
+              <h1 className='font-bold text-[#19665D]'>IC number</h1>
               {icNumber}
             </div>
             <div className='col-span-2'>
-              <h1 className='font-bold'>Email</h1>
+              <h1 className='font-bold text-[#19665D]'>Email</h1>
               {email}
             </div>
             <div>
-              <h1 className='font-bold'>Race</h1>
+              <h1 className='font-bold text-[#19665D]'>Race</h1>
               {race}
             </div>
             <div>
-              <h1 className='font-bold'>Weight</h1>
+              <h1 className='font-bold text-[#19665D]'>Weight</h1>
               {weight}
             </div>
             <div>
-              <h1 className='font-bold'>Height</h1>
+              <h1 className='font-bold text-[#19665D]'>Height</h1>
               {height}
             </div>
             <div>
-              <h1 className='font-bold'>Gender</h1>
+              <h1 className='font-bold text-[#19665D]'>Gender</h1>
               {gender}
             </div>
             <div>
-              <h1 className='font-bold'>Age</h1>
+              <h1 className='font-bold text-[#19665D]'>Age</h1>
               {age}
             </div>
             <div>
-              <h1 className='font-bold'>Phone</h1>
+              <h1 className='font-bold text-[#19665D]'>Phone</h1>
               {phoneNumber}
             </div>
             <div className='col-span-3'>
-              <h1 className='font-bold'>Food allergies</h1>
+              <h1 className='font-bold text-[#19665D]'>Food allergies</h1>
               {foodAllergies}
             </div>
             <div className='col-span-3'>
-              <h1 className='font-bold'>Drug allergies</h1>
+              <h1 className='font-bold text-[#19665D]'>Drug allergies</h1>
               {drugAllergies}
             </div>
         </div>
-      </div>
     </div>
     // <div className='bg-red-200 w-full h-full flex items-center justify-center'>
     //     <div className='w-[400px] h-full flex flex-col bg-white p-7'> 

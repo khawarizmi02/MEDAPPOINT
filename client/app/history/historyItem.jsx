@@ -17,7 +17,7 @@ const HistoryItem = ({
 	}
 
   return (
-    <div className="bg-white-800 w-[800px] pt-10 ">
+    <div className="bg-white-800 w-[800px] pt-10 mt-8">
       <div className="bg-[#A7E2DB] p-10 rounded-3xl">
         <div className="flex flex-row justify-between w-full mb-3">
           <h1 className="font-bold">{hospitalName}</h1>

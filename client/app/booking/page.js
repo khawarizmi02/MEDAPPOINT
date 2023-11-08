@@ -191,7 +191,9 @@ export default function Home() {
 					</div>
 				</div>
 
-				<div ref={div1Ref} className='p-3 my-24 bg-[#A7E2DB] w-3/5 h-5/7 rounded-2xl space-y-2 flex flex-col items-center'>
+				<div className='p-3 my-24 bg-[#A7E2DB] w-3/5 h-5/7 rounded-2xl space-y-2 flex flex-col'>
+											
+				<div ref={div1Ref}>
 					<div className='flex flex-row items-center justify-center space-x-12'>
 						<div className='w-[45] h-auto'>
 							<LocalizationProvider dateAdapter={AdapterDayjs}>
@@ -201,10 +203,10 @@ export default function Home() {
 							</LocalizationProvider>
 						</div>
 
-						<div className='w-1/3'>
+						<div className='w-1/3 flex flex-col items-start justify-center'>
 							<label
 								for="session"
-								className='block text-sm font-bold text-gray-900'
+								className='block text-sm font-bold text-gray-900 text-left'
 							>
 								Session
 							</label>
@@ -212,7 +214,7 @@ export default function Home() {
 								id="session"
 								name="session"
 								autoComplete="book-session"
-								className='block w-full rounded-md border-0 pl-1.5 py-1.5 text-gray-900 
+								className='block w-2/3 rounded-md border-0 pl-1.5 py-1.5 text-gray-900 
 								shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset 
 								focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6'
 								onChange={handleChange}
@@ -224,7 +226,7 @@ export default function Home() {
 						</div>
 
 					</div>
-
+				</div>
 					<div className='flex items-center justify-end gap-x-6 mt-5'>
 						<button type="button" className='text-sm font-semibold leading-6 text-gray-900'
 							onClick={() => scrollToNext(div0Ref)}
@@ -244,7 +246,7 @@ export default function Home() {
 					</div>
 				</div>
 
-				<div ref={div2Ref} className='p-3 my-24 bg-red-50 w-3/5 h-5/7 rounded-2xl space-y-2'>
+				<div ref={div2Ref} className='p-3 my-24 bg-[#A7E2DB] w-3/5 h-5/7 rounded-2xl space-y-2'>
 					<h2 className='ml-3 text-base font-semibold leading-7 text-gray-900'>Notifications</h2>
 					<span className='ml-3 text-sm leading-6 text-gray-600'>Choose on how you would like to be reminded on your appointment.</span>
 
@@ -298,7 +300,7 @@ export default function Home() {
 						</div>
 
 						<h2 className='mt-10 text-base font-semibold leading-7 text-gray-900'>Insurance Coverage</h2>
-						<div className='mt-5 mr-5 grid grid-cols-1 sm:grid-cols-6'>
+						<div className='mt-5 mr-5 grid grid-cols-1 gap-4 sm:grid-cols-6'>
 							<div className='sm:col-span-3'>
 								<label for="company-name" className='block text-sm font-medium leading-6 text-gray-900'>
 									Company Name
@@ -310,7 +312,7 @@ export default function Home() {
 										id="company-name"
 										className='block w-full rounded-md border-0 pl-2 py-1.5 text-gray-900 
 										shadow-sm placeholder:text-gray-400 sm:text-sm sm:leading-6'
-										placeholder="Enter your Member ID"
+										placeholder="Enter Your Company Name"
 										value={formData.insuranceCompany}
 										onChange={(e) => setFormData({ ...formData, insuranceCompany: e.target.value })}
 									/>
@@ -326,7 +328,7 @@ export default function Home() {
 										id="member-id"
 										className='block w-full rounded-md border-0 pl-2 py-1.5 text-gray-900 
 										shadow-sm placeholder:text-gray-400 sm:text-sm sm:leading-6'
-										placeholder="Enter your Member ID"
+										placeholder="Enter Your Member ID"
 										value={formData.insuranceID}
 										onChange={(e) => setFormData({ ...formData, insuranceID: e.target.value })}
 									/>
@@ -335,7 +337,7 @@ export default function Home() {
 						</div>
 					</div>
 
-					<div className='flex items-center justify-end gap-x-6 mt-5'>
+					<div className='flex items-center justify-end gap-x-6 mt-5 mr-5'>
 						<a>
 							<button
 								type="button"
@@ -346,7 +348,7 @@ export default function Home() {
 							</button>
 						</a>
 						<button
-							className='rounded-md bg-indigo-600 px-3 py-2 text-sm 
+							className='rounded-md bg-[#159686] px-3 py-2 text-sm 
 							font-semibold text-white shadow-sm hover:bg-indigo-500 
 							focus-visible:outline focus-visible:outline-2 
 							focus-visible:outline-offset-2 focus-visible:outline-indigo-600'>
