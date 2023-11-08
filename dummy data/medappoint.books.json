@@ -1,36 +1,25 @@
 [{
   "_id": {
-    "$oid": "653f5d5397cce00e4e64dde2"
+    "$oid": "654a56e3667e21785e788624"
   },
   "patient": {
-    "$oid": "653d09cd0fc60eb87e58777b"
+    "$oid": "653fa8f77e269d6aa672e5fc"
   },
   "healthCenter": {
-    "$oid": "653f4d7884c78f3d47af0856"
+    "$oid": "653f4d5784c78f3d47af0853"
   },
-  "medicalConcern": "Stomach Ache",
+  "medicalConcern": "testing booking",
   "bookTime": {
-    "$date": "2023-10-27T12:00:00.000Z"
+    "$date": "2023-11-07T16:00:00.000Z"
   },
-  "bookSession": "Morning",
-  "onSession": false,
-  "__v": 0
-},
-{
-  "_id": {
-    "$oid": "653f5df497cce00e4e64dde6"
+  "bookSession": "Night",
+  "insurance": {
+    "company": "Etiqa",
+    "memberId": "012930",
+    "_id": {
+      "$oid": "654a56e3667e21785e788625"
+    }
   },
-  "patient": {
-    "$oid": "653d230fabb64d01e14c5422"
-  },
-  "healthCenter": {
-    "$oid": "653f4d7884c78f3d47af0856"
-  },
-  "medicalConcern": "FLu",
-  "bookTime": {
-    "$date": "2023-10-29T12:00:00.000Z"
-  },
-  "bookSession": "Afternoon",
   "onSession": false,
   "__v": 0
 }]
