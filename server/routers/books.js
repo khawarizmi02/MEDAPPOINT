@@ -59,6 +59,7 @@ router.delete('/:id', async (req, res) => {
 	}
 });
 
+// update a booking que number
 router.patch('/:id', async (req, res) => {
 	try {
 		const bookInfo = await Book.findOneAndUpdate(
@@ -69,6 +70,8 @@ router.patch('/:id', async (req, res) => {
 
 		if (!bookInfo)
 			return res.status(404).json({ message: 'Book info failed to find' });
+
+		res.json({ message: 'Successfully updated book', bookInfo: bookInfo });
 
 	} catch (error) {
 		res.status(404).json({ message: 'Book info cannot be found' });
