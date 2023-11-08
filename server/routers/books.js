@@ -59,4 +59,20 @@ router.delete('/:id', async (req, res) => {
 	}
 });
 
+router.patch('/:id', async (req, res) => {
+	try {
+		const bookInfo = await Book.findOneAndUpdate(
+			{ healthCenter: req.params.id },
+			{ $set: { queNum: body.queNum } },
+			{ new: true }
+		);
+
+		if (!bookInfo)
+			return res.status(404).json({ message: 'Book info failed to find' });
+
+	} catch (error) {
+		res.status(404).json({ message: 'Book info cannot be found' });
+	}
+});
+
 module.exports = router;
