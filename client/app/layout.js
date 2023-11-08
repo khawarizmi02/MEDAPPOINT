@@ -14,7 +14,7 @@ const inter = Inter({ subsets: ['latin'] })
 export default function RootLayout({ children }) {
 	const [queueList, setQueue] = useState([])
 	const [booking, setBooking] = useState({})
-	const [hospital, setHospital] = useState("")
+	const [hospital, setHospital] = useState({})
 
 	useEffect(() => {
 		const fetchBooking = async () => {
@@ -23,9 +23,9 @@ export default function RootLayout({ children }) {
 				const hospitalResponse = await axios.get(`http://localhost:5000/healthcenter/${response.data.appointmentInfo.healthCenter}`);
 				const queueResponse = await axios.get(`http://localhost:5000/que/${response.data.appointmentInfo.healthCenter}`);
 				setBooking(response.data.appointmentInfo);
-				setHospital(hospitalResponse.data.healthCenter.name);
+				setHospital(hospitalResponse.data.healthCenter);
 				setQueue(queueResponse.data.queNum);
-				return console.log(response.data.appointmentInfo);
+				// return console.log(queueResponse.data.queNum);
 			} catch (error) {
 				return console.error('err', error);
 			}
@@ -43,6 +43,39 @@ export default function RootLayout({ children }) {
 	const toggleNotification = () => {
 		setNotiPopup(!notiPopup);
 	};
+
+	const handleAccept = async () => {
+		try {
+			const que_response = await axios.patch(`http://localhost:5000/que/${hospital._id}`, {
+				method: true,
+				queNum: queueList[queueList.length - 1] + 1,
+			});
+
+			const booking_response = await axios.patch(`http://localhost:5000/book/${hospital._id}`, {
+				queNum: queueList[queueList.length - 1] + 1,
+			});
+
+			setQueue(prevQueue => [...prevQueue, prevQueue[prevQueue.length - 1] + 1]);
+			// console.log(booking_response.data);
+		} catch (error) {
+			return console.error('err', error);
+		}
+	}
+
+	const handleCancel = async () => {
+		try {
+			const response = await axios.post('http://localhost:5000/book/653fa8f77e269d6aa672e5fc/cancel');
+			console.log(response.data);
+			return response.data;
+		} catch (error) {
+			return console.error('err', error);
+		}
+	}
+
+	const getPosition = () => {
+
+		return queueList.indexOf(booking.queNum)
+	}
 
 	return (
 		<html lang="en">
@@ -78,16 +111,19 @@ export default function RootLayout({ children }) {
 											</div>
 
 											<section className='flex flex-col items-center'>
-												<h2 className='font-bold tracking-widest text-2xl'>{queueList[0]}</h2>
-												<span className='text-sm leading-6 text-gray-600'>Current Turn</span>
-
-												<h2 className='pt-5 font-bold tracking-widest text-2xl'>7323</h2>
+												<h2 className='pt-5 font-bold tracking-widest text-2xl'>{booking.queNum}</h2>
 												<span className='text-sm leading-6 text-gray-600'>Your Turn</span>
 											</section>
 
 											<section className='grid grid-cols-3 py-3'>
+
 												<div className='flex flex-col items-center'>
-													<h2 className=''>{queueList.length}</h2>
+													<h2>{queueList[0]}</h2>
+													<span className='text-sm leading-6 text-gray-600'>Current Turn</span>
+												</div>
+
+												<div className='flex flex-col items-center'>
+													<h2 className=''>{getPosition()}</h2>
 													<span className='ml-3 text-sm leading-6 text-gray-600'>person ahead of you</span>
 												</div>
 
@@ -96,10 +132,6 @@ export default function RootLayout({ children }) {
 													<span className='ml-3 text-sm leading-6 text-gray-600'>hours estimated</span>
 												</div>
 
-												<div className='flex flex-col items-center'>
-													<h2 className=''>3</h2>
-													<span className='ml-3 text-sm leading-6 text-gray-600'>room number</span>
-												</div>
 											</section>
 
 										</div>
@@ -130,15 +162,29 @@ export default function RootLayout({ children }) {
 
 											<section className='flex flex-col items-center'>
 												<h2 className='ml-3 text-sm leading-6 text-gray-600'>Upcoming appointment at: </h2>
-												<h2 className='font-bold tracking-wide text-2xl'>{hospital}</h2>
+												<h2 className='font-bold tracking-wide text-2xl'>{hospital.name}</h2>
 
 												{/* <h2 className='ml-3 text-sm leading-6 text-gray-600'>Be there before </h2>
                           <h2 className='font-bold tracking-wide text-2xl'>{booking.bookTime}</h2> */}
 											</section>
 
 											<section className='flex flex-row justify-center py-5'>
-												<a onClick={togglePopup}><span class="inline-flex items-center rounded-md bg-red-50 px-2 py-1 text-l font-medium text-red-700 ring-1 ring-inset ring-red-600/10 hover:cursor-pointer">Cancel</span></a>
-												<a onClick={toggleNotification}><span class="inline-flex items-center rounded-md bg-green-50 px-2 py-1 text-l font-medium text-green-700 ring-1 ring-inset ring-green-600/20 hover:cursor-pointer">Accept</span></a>
+												<a onClick={() => { togglePopup(); handleCancel(); }}>
+													<span
+														className="inline-flex items-center rounded-md bg-red-50 
+															px-2 py-1 text-l font-medium text-red-700 ring-1 ring-inset
+														 	ring-red-600/10 hover:cursor-pointer">
+														Cancel
+													</span>
+												</a>
+												<a onClick={() => { toggleNotification(); handleAccept(); }}>
+													<span
+														className="inline-flex items-center rounded-md bg-green-50 
+															px-2 py-1 text-l font-medium text-green-700 ring-1 ring-inset
+														 	ring">
+														Accept
+													</span>
+												</a>
 											</section>
 
 										</div>
