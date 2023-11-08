@@ -33,6 +33,9 @@ export default function RootLayout({ children }) {
 		fetchBooking()
 	}, [])
 
+	console.log(queueList.length);
+
+
 	const [popupVisible, setPopupVisible] = useState(false);
 	const [notiPopup, setNotiPopup] = useState(false);
 
@@ -64,7 +67,7 @@ export default function RootLayout({ children }) {
 
 	const handleCancel = async () => {
 		try {
-			const response = await axios.post('http://localhost:5000/book/653fa8f77e269d6aa672e5fc/cancel');
+			const response = await axios.delete(`http://localhost:5000/book/${booking._id}`);
 			console.log(response.data);
 			return response.data;
 		} catch (error) {
@@ -73,7 +76,6 @@ export default function RootLayout({ children }) {
 	}
 
 	const getPosition = () => {
-
 		return queueList.indexOf(booking.queNum)
 	}
 
@@ -128,7 +130,7 @@ export default function RootLayout({ children }) {
 												</div>
 
 												<div className='flex flex-col items-center'>
-													<h2 className=''> ~ {queueList.length / 2}</h2>
+													<h2 className=''> ~ {(queueList.length - 1) / 2}</h2>
 													<span className='ml-3 text-sm leading-6 text-gray-600'>hours estimated</span>
 												</div>
 
@@ -181,7 +183,7 @@ export default function RootLayout({ children }) {
 													<span
 														className="inline-flex items-center rounded-md bg-green-50 
 															px-2 py-1 text-l font-medium text-green-700 ring-1 ring-inset
-														 	ring">
+                              ring-red-600/10 hover:cursor-pointer">
 														Accept
 													</span>
 												</a>

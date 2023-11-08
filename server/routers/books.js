@@ -47,15 +47,14 @@ router.post('/', async (req, res) => {
 // delete a booking date
 router.delete('/:id', async (req, res) => {
 	try {
-		const bookInfo = await Book.findById(req.params.id);
+		const bookInfo = await Book.findByIdAndDelete(req.params.id);
 
 		if (!bookInfo)
 			return res.status(404).json({ message: 'Book info failed to find' });
 
-		await bookInfo.remove();
 		res.json({ message: 'Successfully deleted book' });
 	} catch (error) {
-		res.status(404).json({ message: 'Book info cannot be found' });
+		res.status(500).json({ message: 'Book info cannot be found', error: error });
 	}
 });
 

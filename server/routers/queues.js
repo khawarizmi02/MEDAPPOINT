@@ -40,8 +40,10 @@ router.patch('/:id', async (req, res) => {
 		if (!queInfo)
 			return res.status(404).json({ message: 'Que info failed to find' });
 
-		if (req.body.method) queInfo.queNum.push(req.body.queNum);
-		else {
+		if (req.body.method) {
+			if (queInfo.queNum.length === 0)
+				return res.status(404).json({ message: 'No que to update' });
+		} else {
 			if (!queInfo.queNum.includes(req.body.queNum))
 				return res.status(404).json({ message: 'Que info failed to find' });
 
