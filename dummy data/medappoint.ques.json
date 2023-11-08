@@ -15,41 +15,14 @@
 },
 {
   "_id": {
-    "$oid": "6548ecf268d870f391241fee"
+    "$oid": "654a73af27363218571d0c7d"
   },
-  "queNum": [],
+  "queNum": [
+    "1274",
+    "1275"
+  ],
   "healthCenter": {
-    "$oid": "65406bc368cc89992fdb4dbf"
-  },
-  "__v": 0
-},
-{
-  "_id": {
-    "$oid": "6548ecfb68d870f391241ff1"
-  },
-  "queNum": [],
-  "healthCenter": {
-    "$oid": "65406bc368cc89992fdb4dbf"
-  },
-  "__v": 0
-},
-{
-  "_id": {
-    "$oid": "6548ed0568d870f391241ff4"
-  },
-  "queNum": [],
-  "healthCenter": {
-    "$oid": "65406bc368cc89992fdb4dbf"
-  },
-  "__v": 0
-},
-{
-  "_id": {
-    "$oid": "6548ed0f68d870f391241ff7"
-  },
-  "queNum": [],
-  "healthCenter": {
-    "$oid": "65406bc368cc89992fdb4dbf"
+    "$oid": "653f4d5784c78f3d47af0853"
   },
   "__v": 0
 }]
