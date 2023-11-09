@@ -4,6 +4,7 @@ import axios from 'axios';
 import { Inter } from 'next/font/google'
 import Link from 'next/link'
 import './globals.css'
+import { BsFillBellFill } from 'react-icons/bs'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -89,7 +90,7 @@ export default function RootLayout({ children }) {
 						<Link href="/profile">Profile</Link>
 						<Link href="/post-report">Post Report</Link>
 						<Link href="/history">History</Link>
-						<a onClick={togglePopup} className='hover: cursor-pointer'>Q/N</a>
+						<a onClick={togglePopup} className='hover: cursor-pointer'><BsFillBellFill/></a>
 						<button className='rounded-lg bg-[#df0000] p-1 px-3 text-white'><Link href="/booking">My Booking</Link></button>
 					</div>
 				</nav>
