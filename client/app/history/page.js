@@ -12,7 +12,7 @@ const page = () => {
 	useEffect(() => {
 		const fetchData = async () => {
 			try {
-				const dataResponse = await axios.get('http://localhost:5000/healthRecord/653d0d0f68f2e28c3741ed26');
+				const dataResponse = await axios.get('http://localhost:5000/healthRecord/653d234aabb64d01e14c5424');
 				const dataWithDoctorAndHospital = await Promise.all(dataResponse.data.map(async item => {
 					const doctorResponse = await axios.get(`http://localhost:5000/chief/${item.chief}`);
 					const hospitalResponse = await axios.get(`http://localhost:5000/healthcenter/${item.healthCenter}`);

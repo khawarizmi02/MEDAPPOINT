@@ -34,7 +34,7 @@ export default function RootLayout({ children }) {
 		fetchBooking()
 	}, [])
 
-	console.log(queueList.length);
+	console.log(queueList[queueList.length - 1]);
 
 
 	const [popupVisible, setPopupVisible] = useState(false);
@@ -49,18 +49,19 @@ export default function RootLayout({ children }) {
 	};
 
 	const handleAccept = async () => {
+		const newQueue = queueList[queueList.length - 1] + 1;
 		try {
 			const que_response = await axios.patch(`http://localhost:5000/que/${hospital._id}`, {
 				method: true,
-				queNum: queueList[queueList.length - 1] + 1,
+				queNum: newQueue,
 			});
 
 			const booking_response = await axios.patch(`http://localhost:5000/book/${hospital._id}`, {
-				queNum: queueList[queueList.length - 1] + 1,
+				queNum: newQueue,
 			});
 
 			setQueue(prevQueue => [...prevQueue, prevQueue[prevQueue.length - 1] + 1]);
-			// console.log(booking_response.data);
+			console.log(newQueue);
 		} catch (error) {
 			return console.error('err', error);
 		}
@@ -90,7 +91,7 @@ export default function RootLayout({ children }) {
 						<Link href="/profile">Profile</Link>
 						<Link href="/post-report">Post Report</Link>
 						<Link href="/history">History</Link>
-						<a onClick={togglePopup} className='hover: cursor-pointer'><BsFillBellFill/></a>
+						<a onClick={togglePopup} className='hover: cursor-pointer'><BsFillBellFill /></a>
 						<button className='rounded-lg bg-[#df0000] p-1 px-3 text-white'><Link href="/booking">My Booking</Link></button>
 					</div>
 				</nav>

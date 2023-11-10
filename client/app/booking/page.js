@@ -3,11 +3,10 @@ import React, { useEffect, useState } from 'react';
 import { useRef } from 'react';
 import { getHealthCenterData } from './hospital.js';
 import dayjs from 'dayjs';
-import { DemoContainer, DemoItem } from '@mui/x-date-pickers/internals/demo';
+import { DemoItem } from '@mui/x-date-pickers/internals/demo';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { DateCalendar } from '@mui/x-date-pickers/DateCalendar';
-import { set } from 'react-hook-form';
 import axios from "axios";
 
 export default function Home() {
@@ -62,7 +61,7 @@ export default function Home() {
 
 		const healthCenter = hospital.find((item) => item.name === formData['hospital-name']);
 
-		setFormattedFormData({
+		const newFormattedFormData = {
 			...formattedFormData,
 			patient: "653fa8f77e269d6aa672e5fc",
 			healthCenter: healthCenter._id,
@@ -71,7 +70,9 @@ export default function Home() {
 			medicalConcern: formData.medicalConcern,
 			bookSession: formData.session,
 			insurance: insurance,
-		});
+		};
+
+		setFormattedFormData(newFormattedFormData);
 
 		console.log(formattedFormData)
 
@@ -192,41 +193,41 @@ export default function Home() {
 				</div>
 
 				<div className='p-3 my-24 bg-[#A7E2DB] w-3/5 h-5/7 rounded-2xl space-y-2 flex flex-col'>
-											
-				<div ref={div1Ref}>
-					<div className='flex flex-row items-center justify-center space-x-12'>
-						<div className='w-[45] h-auto'>
-							<LocalizationProvider dateAdapter={AdapterDayjs}>
-								<DemoItem>
-									<DateCalendar views={['day']} onChange={handleDateChange} />
-								</DemoItem>
-							</LocalizationProvider>
-						</div>
 
-						<div className='w-1/3 flex flex-col items-start justify-center'>
-							<label
-								for="session"
-								className='block text-sm font-bold text-gray-900 text-left'
-							>
-								Session
-							</label>
-							<select
-								id="session"
-								name="session"
-								autoComplete="book-session"
-								className='block w-2/3 rounded-md border-0 pl-1.5 py-1.5 text-gray-900 
+					<div ref={div1Ref}>
+						<div className='flex flex-row items-center justify-center space-x-12'>
+							<div className='w-[45] h-auto'>
+								<LocalizationProvider dateAdapter={AdapterDayjs}>
+									<DemoItem>
+										<DateCalendar views={['day']} onChange={handleDateChange} />
+									</DemoItem>
+								</LocalizationProvider>
+							</div>
+
+							<div className='w-1/3 flex flex-col items-start justify-center'>
+								<label
+									for="session"
+									className='block text-sm font-bold text-gray-900 text-left'
+								>
+									Session
+								</label>
+								<select
+									id="session"
+									name="session"
+									autoComplete="book-session"
+									className='block w-2/3 rounded-md border-0 pl-1.5 py-1.5 text-gray-900 
 								shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset 
 								focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6'
-								onChange={handleChange}
-							>
-								<option value='Morning'> Morning </option>
-								<option value='Evening'> Evening </option>
-								<option value='Night'> Night   </option>
-							</select>
-						</div>
+									onChange={handleChange}
+								>
+									<option value='Morning'> Morning </option>
+									<option value='Evening'> Evening </option>
+									<option value='Night'> Night   </option>
+								</select>
+							</div>
 
+						</div>
 					</div>
-				</div>
 					<div className='flex items-center justify-end gap-x-6 mt-5'>
 						<button type="button" className='text-sm font-semibold leading-6 text-gray-900'
 							onClick={() => scrollToNext(div0Ref)}
@@ -352,7 +353,7 @@ export default function Home() {
 							font-semibold text-white shadow-sm hover:bg-indigo-500 
 							focus-visible:outline focus-visible:outline-2 
 							focus-visible:outline-offset-2 focus-visible:outline-indigo-600'>
-							Next
+							Submit
 						</button>
 					</div>
 				</div>
